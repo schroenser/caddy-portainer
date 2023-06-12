@@ -14,7 +14,7 @@ services:
       - caddy_data:/data
     restart: unless-stopped
   portainer:
-    image: portainer/portainer-ce:2.18.1
+    image: portainer/portainer-ce:2.18.3
     labels:
       caddy: ${DOMAIN}
       caddy.reverse_proxy: "{{upstreams 9000}}"
