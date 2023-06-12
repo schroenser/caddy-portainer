@@ -6,9 +6,9 @@ services:
       - 80:80
       - 443:443
     environment:
-      - CADDY_INGRESS_NETWORKS=bridge
+      - CADDY_INGRESS_NETWORKS=caddy
     networks:
-      - bridge
+      - caddy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - caddy_data:/data
@@ -19,13 +19,14 @@ services:
       caddy: ${DOMAIN}
       caddy.reverse_proxy: "{{upstreams 9000}}"
     networks:
-      - bridge
+      - caddy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/portainer/data:/data
     restart: unless-stopped
 networks:
-  bridge:
-    external: true
+  caddy:
+    name: caddy
+    driver: bridge
 volumes:
   caddy_data: {}
