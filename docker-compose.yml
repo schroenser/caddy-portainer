@@ -14,7 +14,7 @@ services:
       - caddy_data:/data
     restart: unless-stopped
   portainer:
-    image: portainer/agent:2.18.3
+    image: portainer/agent:2.18.4
     ports:
       - 9001:9001
     networks:
