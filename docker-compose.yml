@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   caddy:
-    image: lucaslorentz/caddy-docker-proxy:2.8.4
+    image: lucaslorentz/caddy-docker-proxy:alpine
     ports:
       - 80:80
       - 443:443
@@ -14,7 +14,7 @@ services:
       - caddy_data:/data
     restart: unless-stopped
   portainer:
-    image: portainer/portainer-${EDITION}:2.18.4
+    image: portainer/portainer-${EDITION}:lts
     labels:
       caddy: ${DOMAIN}
       caddy.reverse_proxy: "{{upstreams 9000}}"
