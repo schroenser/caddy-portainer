@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   caddy:
     image: lucaslorentz/caddy-docker-proxy:2.10.0-alpine
@@ -12,17 +11,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - caddy_data:/data
-    restart: unless-stopped
-  portainer:
-    image: portainer/portainer-ce:2.31.3-alpine
-    labels:
-      caddy: ${DOMAIN}
-      caddy.reverse_proxy: "{{upstreams 9000}}"
-    networks:
-      - caddy
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /opt/portainer/data:/data
     restart: unless-stopped
 networks:
   caddy:
