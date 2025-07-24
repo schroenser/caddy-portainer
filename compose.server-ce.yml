@@ -1,0 +1,14 @@
+include:
+  - compose.caddy.yml
+services:
+  portainer:
+    image: portainer/portainer-ce:2.31.3-alpine
+    labels:
+      caddy: ${DOMAIN}
+      caddy.reverse_proxy: "{{upstreams 9000}}"
+    networks:
+      - caddy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /opt/portainer/data:/data
+    restart: unless-stopped
