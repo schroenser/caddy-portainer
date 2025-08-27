@@ -2,7 +2,7 @@ include:
   - compose.caddy.yml
 services:
   portainer:
-    image: portainer/portainer-ce:2.33.0-alpine
+    image: portainer/portainer-ce:2.33.1-alpine
     labels:
       caddy: ${DOMAIN}
       caddy.reverse_proxy: "{{upstreams 9000}}"
