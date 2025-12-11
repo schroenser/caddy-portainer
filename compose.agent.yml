@@ -2,7 +2,7 @@ include:
   - compose.caddy.yml
 services:
   portainer:
-    image: portainer/agent:2.36.0-alpine
+    image: portainer/agent:2.37.0-alpine
     ports:
       - 9001:9001
     networks:
