@@ -6,6 +6,8 @@
 version: 2
 updates:
   - package-ecosystem: "docker-compose" # See documentation for possible values
+    assignees:
+      - "schroenser"
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
